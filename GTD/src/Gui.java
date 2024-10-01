@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.GridLayout;
+
 public class Gui {
     // här vill vi ha all vår GUI kod.
     List<String> postList = new ArrayList<>();
@@ -14,12 +15,18 @@ public class Gui {
     JPanel panel = new JPanel();
     JLabel label = new JLabel();
     JPanel postPanel = new JPanel();
+    String test; 
 
     public Gui(){
 
-    JButton newTaskBtn = new JButton("New Task");
-
     JTextField newTaskTextField = new JTextField();
+    JButton newTaskBtn = new JButton("New Task");
+        newTaskBtn.addActionListener(e ->{
+            getPostText(newTaskTextField.getText());
+        });
+
+        
+    
 
     // panelen ska ha ett utseende
 
@@ -49,4 +56,13 @@ public class Gui {
     panel.add(postPanel);
     frame.pack();
     }
+
+    public void getPostText(String insert){
+        test = insert;
+        System.out.println(test);
+        
+     }
+
+     
  }
+
