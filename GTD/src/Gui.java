@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.GridLayout;
+import javax.swing.JCheckBox;
 
 public class Gui {
     // här vill vi ha all vår GUI kod.
@@ -24,7 +25,11 @@ public class Gui {
             getPostText(newTaskTextField.getText());
         });
 
-        
+   /*  JButton fetchBtn = new JButton("Fånga skiten");
+        fetchBtn.addActionListener(e ->{
+            getPostText(null);
+        });*/
+
     
 
     // panelen ska ha ett utseende
@@ -43,7 +48,7 @@ public class Gui {
     }
 
     public void postList(){
-    postPanel.setLayout(new GridLayout(postList.size(), 1));
+    postPanel.setLayout(new GridLayout(postList.size(), 2));
     postPanel.removeAll();
 
     for(String post : postList ){
@@ -52,12 +57,15 @@ public class Gui {
         postPanel.add(addPost);
 
     }
+    
     panel.add(postPanel);
     frame.pack();
     }
 
     public void getPostText(String insert){
-      
+        //ska checkbox koden vara här tvistar de lärde om
+        JCheckBox c1 = new JCheckBox("Markera som klar"); 
+        panel.add(c1);
         //Lägger till i listan och printar 
         postList.add(insert);
         System.out.println(postList);
