@@ -15,8 +15,7 @@ public class Gui {
     JPanel panel = new JPanel();
     JLabel label = new JLabel();
     JPanel postPanel = new JPanel();
-    String test; 
-
+   
     public Gui(){
 
     JTextField newTaskTextField = new JTextField();
@@ -34,7 +33,7 @@ public class Gui {
     panel.add(label);
     panel.add(newTaskBtn);
     panel.add(newTaskTextField);
-
+    
     frame.add(panel);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.pack();
@@ -51,15 +50,17 @@ public class Gui {
         System.out.println("List test " + post);
         JLabel addPost = new JLabel(post);
         postPanel.add(addPost);
-
-    }
     panel.add(postPanel);
     frame.pack();
     }
+    
+    }
 
     public void getPostText(String insert){
-        test = insert;
-        System.out.println(test);
+      
+        //Lägger till i listan och printar 
+        postList.add(insert);
+        System.out.println(postList);
         
      }
 
