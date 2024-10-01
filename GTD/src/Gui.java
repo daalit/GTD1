@@ -15,7 +15,9 @@ public class Gui {
     JFrame frame = new JFrame("Test GUI");
     JPanel panel = new JPanel();
     JLabel label = new JLabel();
+    JLabel label2 =new JLabel();
     JPanel postPanel = new JPanel();
+    JPanel checkbox = new JPanel();
    
     public Gui(){
 
@@ -34,11 +36,11 @@ public class Gui {
 
     // panelen ska ha ett utseende
 
-    panel.setLayout(new GridLayout(4,1));
+    panel.setLayout(new GridLayout(3,3));
     panel.add(label);
     panel.add(newTaskBtn);
     panel.add(newTaskTextField);
-    
+    panel.add(label2);
     frame.add(panel);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.pack();
@@ -46,27 +48,37 @@ public class Gui {
 
 
     }
+    public void marklist(){
+        checkbox.setLayout(new GridLayout(postList.size(),3));
+        JCheckBox c1 = new JCheckBox("Markera som klar"); 
+        panel.add(c1);
+        panel.add(checkbox);
+        frame.pack();
+
+    }
 
     public void postList(){
-    postPanel.setLayout(new GridLayout(postList.size(), 2));
+    postPanel.setLayout(new GridLayout(postList.size(), 1));
+   
     postPanel.removeAll();
 
     for(String post : postList ){
         System.out.println("List test " + post);
         JLabel addPost = new JLabel(post);
         postPanel.add(addPost);
-
+       
     }
     
     panel.add(postPanel);
+    marklist();
     frame.pack();
     }
 
     public void getPostText(String insert){
-        //ska checkbox koden vara här tvistar de lärde om
-        JCheckBox c1 = new JCheckBox("Markera som klar"); 
-        panel.add(c1);
-        //Lägger till i listan och printar 
+        
+        
+        
+        
         postList.add(insert);
         System.out.println(postList);
         postList();
