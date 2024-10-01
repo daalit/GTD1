@@ -50,10 +50,10 @@ public class Gui {
         System.out.println("List test " + post);
         JLabel addPost = new JLabel(post);
         postPanel.add(addPost);
+
+    }
     panel.add(postPanel);
     frame.pack();
-    }
-    
     }
 
     public void getPostText(String insert){
@@ -61,6 +61,7 @@ public class Gui {
         //Lägger till i listan och printar 
         postList.add(insert);
         System.out.println(postList);
+        postList();
         
      }
 
