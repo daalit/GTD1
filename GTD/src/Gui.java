@@ -14,8 +14,8 @@ public class Gui {
     List<String> postList = new ArrayList<>();
     JFrame frame = new JFrame("Test GUI");
     JPanel panel = new JPanel();
-    JLabel label = new JLabel();
-    JLabel label2 =new JLabel();
+    JLabel label = new JLabel("Testtext");
+    JLabel label2 =new JLabel("Testtext 2");
     JPanel postPanel = new JPanel();
     JPanel checkbox = new JPanel();
    
