@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
-
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -11,14 +12,18 @@ import javax.swing.JCheckBox;
 
 public class Gui {
     // här vill vi ha all vår GUI kod.
-    List<String> postList = new ArrayList<>();
+  //  List<String> postList = new ArrayList<>();
     JFrame frame = new JFrame("Test GUI");
     JPanel panel = new JPanel();
-    JLabel label = new JLabel("Testtext");
-    JLabel label2 =new JLabel("Testtext 2");
+  //  JLabel label = new JLabel("Testtext");
+    //JLabel label2 =new JLabel("Testtext 2");
     JPanel postPanel = new JPanel();
     JPanel checkbox = new JPanel();
-   
+    DefaultListModel<String> taskListModel = new DefaultListModel<>();
+    JList<String> taskList = new JList<>(taskListModel);
+
+
+
     public Gui(){
 
     JTextField newTaskTextField = new JTextField();
@@ -37,18 +42,35 @@ public class Gui {
     // panelen ska ha ett utseende
 
     panel.setLayout(new GridLayout(3,3));
-    panel.add(label);
+   // panel.add(label);
     panel.add(newTaskBtn);
     panel.add(newTaskTextField);
-    panel.add(label2);
+   // panel.add(label2);
+    panel.add(taskList);
     frame.add(panel);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.pack();
+  //  showList();
     frame.setVisible(true);
 
 
     }
-    public void marklist(){
+
+  //  public void showList(){
+
+     //   for(String post : taskList ){
+      //      System.out.println("List test ");
+           // JLabel addPost = new JLabel();
+          //  postPanel.add(addPost);
+            //panel.add(postPanel);
+            //frame.pack();
+           
+    //    }
+        
+    
+    //}
+
+   /*  public void marklist(){
         checkbox.setLayout(new GridLayout(postList.size(),3));
         JCheckBox c1 = new JCheckBox("Markera som klar"); 
         panel.add(c1);
@@ -73,15 +95,17 @@ public class Gui {
     marklist();
     frame.pack();
     }
-
+*/
     public void getPostText(String insert){
         
         
         
         
-        postList.add(insert);
-        System.out.println(postList);
-        postList();
+        taskListModel.addElement(insert);
+        System.out.println(taskListModel);
+        
+       // postPanel.removeAll();
+     //   showList();
         
      }
 
