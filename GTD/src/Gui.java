@@ -32,6 +32,17 @@ public class Gui {
             getPostText(newTaskTextField.getText());
         });
 
+    
+    JButton deleteTaskBtn = new JButton("Delete");
+    
+    
+    deleteTaskBtn.addActionListener(e -> {
+      int selectedIndex = taskList.getSelectedIndex();
+      System.out.println(selectedIndex);
+        if (selectedIndex >= 0) {
+          taskListModel.removeElementAt(selectedIndex);
+        }
+    });
    /*  JButton fetchBtn = new JButton("Fånga skiten");
         fetchBtn.addActionListener(e ->{
             getPostText(null);
@@ -45,6 +56,7 @@ public class Gui {
    // panel.add(label);
     panel.add(newTaskBtn);
     panel.add(newTaskTextField);
+    panel.add(deleteTaskBtn);
    // panel.add(label2);
     panel.add(taskList);
     frame.add(panel);
