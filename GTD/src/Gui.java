@@ -15,8 +15,8 @@ public class Gui {
  
     JFrame frame = new JFrame("Test GUI");
     JPanel panel = new JPanel();
-  //  JLabel label = new JLabel("Testtext");
-    //JLabel label2 =new JLabel("Testtext 2");
+    JLabel label = new JLabel("List");
+    JLabel label2 =new JLabel("Done");
     JPanel postPanel = new JPanel();
     JPanel checkbox = new JPanel();
     DefaultListModel<String> taskListModel = new DefaultListModel<>();
@@ -36,7 +36,7 @@ public class Gui {
     
     JButton deleteTaskBtn = new JButton("Delete");
     
-    JButton moveTaskBtn = new JButton("move");
+    JButton moveTaskBtn = new JButton("Done");
 
     moveTaskBtn.addActionListener(e -> {
       int selectedIndex = taskList.getSelectedIndex();
@@ -61,14 +61,16 @@ public class Gui {
     // panelen ska ha ett utseende
 
     panel.setLayout(new GridLayout(4,1));
-   // panel.add(label);
-    panel.add(newTaskBtn);
-    panel.add(newTaskTextField);
-    panel.add(deleteTaskBtn);
-    panel.add(moveTaskBtn);
-   // panel.add(label2);
+    panel.add(label);
+    panel.add(label2);
     panel.add(taskList);
     panel.add(historyList);
+    panel.add(newTaskBtn);
+    panel.add(deleteTaskBtn);
+    panel.add(moveTaskBtn);
+    panel.add(newTaskTextField);
+   
+    
     frame.add(panel);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.pack();
