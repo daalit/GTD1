@@ -20,8 +20,9 @@ public class Gui {
     JPanel postPanel = new JPanel();
     JPanel checkbox = new JPanel();
     DefaultListModel<String> taskListModel = new DefaultListModel<>();
+    DefaultListModel<String> historyListModel = new DefaultListModel<>();
     JList<String> taskList = new JList<>(taskListModel);
-
+    JList<String> historyList = new JList<>(historyListModel);
 
 
     public Gui(){
@@ -35,12 +36,25 @@ public class Gui {
     
     JButton deleteTaskBtn = new JButton("Delete");
     
-    
+    JButton moveTaskBtn = new JButton("move");
+
+    moveTaskBtn.addActionListener(e -> {
+      int selectedIndex = taskList.getSelectedIndex();
+      if(selectedIndex != -1){
+        String selectedTask = taskList.getSelectedValue();
+        taskListModel.removeElementAt(selectedIndex);
+        historyListModel.addElement(selectedTask);
+        System.out.println(historyList);
+      }
+    });
+
+
     deleteTaskBtn.addActionListener(e -> {
       int selectedIndex = taskList.getSelectedIndex();
       System.out.println(selectedIndex);
         if (selectedIndex >= 0) {
           taskListModel.removeElementAt(selectedIndex);
+          
         }
     });
    /*  JButton fetchBtn = new JButton("Fånga skiten");
@@ -57,8 +71,10 @@ public class Gui {
     panel.add(newTaskBtn);
     panel.add(newTaskTextField);
     panel.add(deleteTaskBtn);
+    panel.add(moveTaskBtn);
    // panel.add(label2);
     panel.add(taskList);
+    panel.add(historyList);
     frame.add(panel);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.pack();
