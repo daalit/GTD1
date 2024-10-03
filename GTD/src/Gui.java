@@ -33,33 +33,16 @@ public class Gui {
             getPostText(newTaskTextField.getText());
         });
 
-    
-    JButton deleteTaskBtn = new JButton("Delete");
-    
     JButton moveTaskBtn = new JButton("Done");
 
     moveTaskBtn.addActionListener(e -> {
-      int selectedIndex = taskList.getSelectedIndex();
-      if(selectedIndex != -1){
-        String selectedTask = taskList.getSelectedValue();
-        taskListModel.removeElementAt(selectedIndex);
-        historyListModel.addElement(selectedTask);
-        System.out.println(historyList);
-      }
+      moveFunction();
     });
 
-
+    JButton deleteTaskBtn = new JButton("Delete");
     deleteTaskBtn.addActionListener(e -> {
-      int selectedIndex = taskList.getSelectedIndex();
-      int historyIndex = historyList.getSelectedIndex();
-      System.out.println(selectedIndex);
-        if (selectedIndex >= 0) {
-          taskListModel.removeElementAt(selectedIndex);
-          
-        }else if (historyIndex >=0){
-          historyListModel.removeElementAt(historyIndex);
+      deleteFunction();
 
-        }
     });
        
     // panelen ska ha ett utseende
@@ -83,7 +66,10 @@ public class Gui {
 
     }
 
-             
+
+    
+
+    
         public void getPostText(String insert){
                                 
         taskListModel.addElement(insert);
@@ -93,6 +79,47 @@ public class Gui {
         
      }
 
-     
+     public void moveFunction (){
+      int selectedIndex = taskList.getSelectedIndex();
+      int selectedHistoryIndex = historyList.getSelectedIndex();
+    
+
+      if(selectedIndex != -1){
+        String selectedTask = taskList.getSelectedValue();
+       
+
+        taskListModel.removeElementAt(selectedIndex);
+        historyListModel.addElement(selectedTask);
+       
+        System.out.println(historyList);
+
+      } else if( selectedHistoryIndex != -1){
+       
+        String selectedHistory = historyList.getSelectedValue();
+
+        historyListModel.removeElementAt(selectedHistoryIndex);
+        taskListModel.addElement(selectedHistory);
+    
+        System.out.println(taskList);
+        
+      }
+
+     } 
+
+     public void deleteFunction (){
+      int selectedIndex = taskList.getSelectedIndex();
+      int historyIndex = historyList.getSelectedIndex();
+
+      System.out.println(selectedIndex);
+        if (selectedIndex >= 0) {
+          taskListModel.removeElementAt(selectedIndex);
+          
+        }else if (historyIndex >=0){
+          historyListModel.removeElementAt(historyIndex);
+
+        }
+
+
+    }
  }
 
