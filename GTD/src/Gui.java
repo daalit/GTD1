@@ -51,10 +51,14 @@ public class Gui {
 
     deleteTaskBtn.addActionListener(e -> {
       int selectedIndex = taskList.getSelectedIndex();
+      int historyIndex = historyList.getSelectedIndex();
       System.out.println(selectedIndex);
         if (selectedIndex >= 0) {
           taskListModel.removeElementAt(selectedIndex);
           
+        }else if (historyIndex >=0){
+          historyListModel.removeElementAt(historyIndex);
+
         }
     });
        
